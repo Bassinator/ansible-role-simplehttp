@@ -2,7 +2,7 @@
 - name: create www directory
   file:
     path: '{{ www_dir }}'
-    state: present
+    state: directory
     owner: '{{ installation_os_user }}'
 
 - name: install simplehttp service
