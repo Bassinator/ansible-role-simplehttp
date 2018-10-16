@@ -1,0 +1,13 @@
+[Unit]
+Description=Job that runs the python SimpleHTTPServer daemon
+Documentation=man:SimpleHTTPServer(1)
+
+[Service]
+Type=simple
+User={{ installation_os_user }}
+WorkingDirectory={{ www_dir }}
+ExecStart=/usr/bin/python -m SimpleHTTPServer 8080 &
+ExecStop=/bin/kill `/bin/ps aux | /bin/grep SimpleHTTPServer | /bin/grep -v grep | /usr/bin/awk '{ print $2 }'`
+
+[Install]
+WantedBy=multi-user.target

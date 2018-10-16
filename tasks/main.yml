@@ -1,0 +1,17 @@
+---
+- name: create www directory
+  file:
+    path: '{{ www_dir }}'
+    state: present
+    user: {{ installation_os_user }}
+
+- name: install simplehttp service
+  template:
+    src: 'simplehttp.service'
+    dest: '/etc/systemd/system/'
+
+- name: Make sure simplehttp is started and enabled to start on boot
+  systemd:
+    name: 'simplehttp'
+    state: 'started'
+    enabled: 'yes'
