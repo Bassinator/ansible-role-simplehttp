@@ -3,7 +3,7 @@
   file:
     path: '{{ www_dir }}'
     state: present
-    user: '{{ installation_os_user }}'
+    owner: '{{ installation_os_user }}'
 
 - name: install simplehttp service
   template:
