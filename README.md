@@ -1,6 +1,6 @@
-# Ansible Role: Java
+# Ansible Role: simplehttp
 
-[![Build Status](https://travis-ci.org/bassinator/ansible-role-simplehttp.svg?branch=master)](https://travis-ci.org/bassinator/ansible-role-simplehttp)
+[![Build Status](https://travis-ci.com/Bassinator/ansible-role-simplehttp.svg?branch=master)](https://travis-ci.com/Bassinator/ansible-role-simplehttp)
 
 Install and start a SimpleHTTPServer to server a directory via http.
 
@@ -13,6 +13,7 @@ None.
 Available variables are listed below, along with default values:
 
     installation_os_user: vagrant
+    installation_os_group: vagrant
     www_dir: '/home/{{ installation_os_user }}/www/'
 
 ## Dependencies

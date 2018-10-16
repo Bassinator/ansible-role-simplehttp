@@ -16,6 +16,5 @@
   - name: create test file
     copy:
       src: testfile
-      dest: {{ www_dir }}
+      dest: '{{ www_dir }}'
       owner: '{{ installation_os_user }}'
-      group: '{{ installation_os_group }}'
