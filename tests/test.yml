@@ -18,3 +18,5 @@
       src: testfile
       dest: '{{ www_dir }}'
       owner: '{{ installation_os_user }}'
+  - include_tasks: debian.yml
+    when: ansible_os_family == "Debian"
