@@ -1,4 +1,4 @@
-- name install curl package
+- name: install curl package
   apt:
     name: curl
     state: present
