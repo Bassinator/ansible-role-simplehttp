@@ -12,3 +12,10 @@
       group: '{{ installation_os_group }}'
   roles:
     - bassinator.simplehttp
+  post_tasks:
+  - name: create test file
+    copy:
+      src: testfile
+      dest: {{ www_dir }}
+      owner: '{{ installation_os_user }}'
+      group: '{{ installation_os_group }}'
