@@ -21,14 +21,14 @@ before_script:
 script:
 #start docker container
   - container_id=$(mktemp)
-  - 'docker run --detach --volume="${PWD}":/etc/ansible/roles/bassinator.simplehttp:ro ${run_opts} geerlingguy/docker-${distro}-ansible:latest "${init}" > "${container_id}"'
+  - 'docker run --detach --volume="${PWD}":/etc/ansible/roles/bassinator.$ROLE_NAME:ro ${run_opts} geerlingguy/docker-${distro}-ansible:latest "${init}" > "${container_id}"'
 # check syntax
-  - 'docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/bassinator.simplehttp/tests/test.yml --syntax-check'
+  - 'docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/bassinator.$ROLE_NAME/tests/test.yml --syntax-check'
 # check first run does not fail
-  - 'docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/bassinator.simplehttp/tests/test.yml'
+  - 'docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/bassinator.$ROLE_NAME/tests/test.yml'
 # Run the role/ playbook again, checking to make sure it's idempotent.
   - idempotence=$(mktemp)
-  - 'docker exec "$(cat ${container_id})" ansible-playbook /etc/ansible/roles/bassinator.simplehttp/tests/test.yml | tee -a ${idempotence}'
+  - 'docker exec "$(cat ${container_id})" ansible-playbook /etc/ansible/roles/bassinator.$ROLE_NAME/tests/test.yml | tee -a ${idempotence}'
   - 'tail ${idempotence} | grep -q "changed=0.*failed=0" && (echo "Idempotence test: pass" && exit 0) || (echo "Idempotence test: fail" && exit 1)'
 # check if http server serves expected testfile
   - testfile=$(mktemp)
