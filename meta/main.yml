@@ -1,6 +1,6 @@
 galaxy_info:
   role_name: simplehttp
-  author: Bastian Bukatz
+  author: Bassinator
   description: Role to setup simplehttp server
 
   license: GNU GPLv3
