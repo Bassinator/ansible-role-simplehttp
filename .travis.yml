@@ -1,4 +1,7 @@
 ---
+language: python
+services: docker
+
 env:
   global:
     - ROLE_NAME: simplehttp
