@@ -2,3 +2,5 @@
 installation_os_user: vagrant
 installation_os_group: vagrant
 www_dir: '/home/{{ installation_os_user }}/www/'
+www_files:
+  - index.html

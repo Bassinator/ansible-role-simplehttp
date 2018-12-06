@@ -1,6 +1,6 @@
 ---
-- hosts: localhost
-  remote_user: root
+- name: Converge
+  hosts: all
   pre_tasks:
   - name: add user group
     user:
@@ -12,11 +12,3 @@
       group: '{{ installation_os_group }}'
   roles:
     - bassinator.simplehttp
-  post_tasks:
-  - name: create test file
-    copy:
-      src: testfile
-      dest: '{{ www_dir }}'
-      owner: '{{ installation_os_user }}'
-  - include_tasks: debian.yml
-    when: ansible_os_family == "Debian"

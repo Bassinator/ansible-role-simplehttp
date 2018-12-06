@@ -15,3 +15,12 @@
     name: 'simplehttp'
     state: 'started'
     enabled: 'yes'
+
+- name: Copy files to serve
+  copy:
+    src: "{{ item }}"
+    dest: '{{ www_dir }}'
+    owner: "{{ installation_os_user }}"
+    group: "{{ installation_os_group }}"
+    mode: 0600
+  with_items: '{{ www_files}}'

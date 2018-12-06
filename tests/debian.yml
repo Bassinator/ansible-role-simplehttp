@@ -1,5 +1,0 @@
-- name: install curl package
-  apt:
-    name: curl
-    state: present
-    force_apt_get: yes
