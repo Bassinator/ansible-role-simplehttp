@@ -23,4 +23,4 @@
     owner: "{{ installation_os_user }}"
     group: "{{ installation_os_group }}"
     mode: 0600
-  with_items: '{{ www_files}}'
+  with_items: '{{ www_files }}'

@@ -16,6 +16,6 @@ galaxy_info:
       versions:
         - stretch
 
-  galaxy_tags: [simplehttp, SimpleHTTPServer]
+  galaxy_tags: [simplehttp, python]
 
 dependencies: []
